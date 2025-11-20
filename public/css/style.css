@@ -1,0 +1,455 @@
+:root {
+    --cor-background-color: black;
+    --cor-card: rgba(255, 255, 255, 0.15);
+    --cor-borda: rgba(255, 255, 255, 0.3);
+    --cor-texto: white;
+    --cor-link: #7ab7ff;
+    --cor-link-hover: #a9d0ff;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--cor-background-color);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* vídeo de fundo ocupando a tela inteira */
+video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* ===== CARD ===== */
+.card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    width: 340px;
+    padding: 2rem;
+    
+    background: var(--cor-card);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--cor-borda);
+    border-radius: 12px;
+    
+    text-align: center;
+    color: var(--cor-texto);
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.card h1 {
+    margin: 0;
+    font-size: 1.7rem;
+}
+
+.card p {
+    margin-top: 0.5rem;
+    opacity: 0.9;
+}
+
+/* ===== LINKS ===== */
+.links {
+    margin-top: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.links a {
+    text-decoration: none;
+    color: var(--cor-link);
+    background: rgba(255, 255, 255, 0.08);
+    padding: 0.6rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.15);
+    transition: 0.2s ease;
+}
+
+.links a:hover {
+    background: rgba(255, 255, 255, 0.25);
+    color: var(--cor-link-hover);
+    transform: scale(1.03);
+}
+
+/* ===== MINI CARDS: BASE ===== */
+.minicard {
+    position: absolute;
+
+    padding: 1rem 1.3rem;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(6px);
+
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+
+    cursor: pointer;
+    transition: 0.2s ease;
+    font-size: 0.95rem;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.minicard:hover {
+    background: rgba(255, 255, 255, 0.28);
+    transform: scale(1.05);
+}
+
+/* ===== POSICIONAMENTOS ===== */
+
+/* Card de TAGS */
+.minicard.tags {
+    bottom: 30px;
+    right: 30px;
+}
+
+/* Card de SOM (acima do de tags) */
+.minicard.sound {
+    bottom: 90px;   /* sobe 60px acima do outro */
+    right: 30px;
+}
+
+
+/* ===== MODAL ===== */
+#Modal {
+    display: none; /* aparece no JS */
+    justify-content: center;
+    align-items: center;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+
+    z-index: 10;
+}
+
+
+/* Conteúdo do Modal */
+.modal-content {
+    width: 360px;
+    max-height: 80vh;        /* impede ultrapassar a tela */
+    padding: 2rem;
+
+    background: rgba(255,255,255,0.14);
+    backdrop-filter: blur(10px);
+
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,0.25);
+
+    text-align: center;
+    color: white;
+
+    animation: fadeIn 0.3s ease;
+
+    overflow-y: auto;        /* scroll interno */
+    overflow-x: hidden;      /* evita scroll lateral */
+}
+
+/* Scroll suave e estilizado */
+.modal-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.38);
+    border-radius: 6px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,255,255,0.55);
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    margin-bottom: .5rem;
+}
+
+
+/* Botão fechar */
+.close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+
+    font-size: 2rem;
+    cursor: pointer;
+    color: white;
+
+    transition: 0.2s ease;
+    user-select: none;
+}
+
+.close:hover {
+    color: #cccccc;
+}
+
+/* Animação */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Subtítulo */
+.sub {
+    opacity: .8;
+    margin-top: -5px;
+    margin-bottom: 15px;
+    font-size: .9rem;
+}
+
+/* Cada grupo */
+.skills-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.skills-group h3 {
+    margin: 0 0 8px 0;
+    font-size: 1.05rem;
+    color: #dbe9ff;
+}
+
+/* Tags */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tags span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    padding: 6px 12px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    backdrop-filter: blur(6px);
+
+    border-radius: 8px;
+    font-size: 0.87rem;
+    color: white;
+
+    transition: 0.2s ease;
+}
+
+
+.tags span:hover {
+    background: rgba(255,255,255,0.32);
+    border-color: rgba(255,255,255,0.35);
+    transform: scale(1.07);
+}
+
+
+.view-counter {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    backdrop-filter: blur(6px);
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-size: 18px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: 0.25s ease;       /* <- suave */
+    cursor: pointer;              /* <- feedback visual */
+}
+
+.view-counter:hover {
+    background: rgba(255,255,255,0.25);
+    border-color: rgba(255,255,255,0.35);
+    transform: scale(1.06);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.22);
+}
+
+.view-counter i {
+    font-size: 10px;
+}
+
+.view-counter h1 {
+    margin: 0;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+
+
+/* ===== SELECTOR ===== */
+.selector {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.selector button {
+    padding: 6px 12px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s ease;
+    font-size: 0.8rem;
+    backdrop-filter: blur(5px);
+}
+
+.selector button:hover {
+    background: rgba(255,255,255,0.25);
+    transform: scale(1.05);
+}
+
+.selector button.active {
+    background: rgba(255,255,255,0.35);
+    font-weight: bold;
+}
+
+.selector button i {
+    margin-right: 6px;
+}
+
+
+/* ============================
+   📱 MOBILE — até 480px
+============================ */
+@media (max-width: 480px) {
+
+    .card {
+        width: 85vw;
+        padding: 1.2rem;
+        border-radius: 10px;
+    }
+
+    .card h1 {
+        font-size: 1.3rem;
+    }
+
+    .card p {
+        font-size: 0.9rem;
+    }
+
+    /* Links menores */
+    .links a {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    /* Minicards reposicionados */
+    .minicard.tags {
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .minicard.sound {
+        bottom: 70px;
+        right: 20px;
+    }
+
+    /* Modal mais compacto */
+    .modal-content {
+        width: 90vw;
+        max-height: 75vh;
+        padding: 1.2rem;
+    }
+
+    .close {
+        font-size: 1.6rem;
+        top: 10px;
+        right: 10px;
+    }
+
+    .skills-group h3 {
+        font-size: 1rem;
+    }
+
+    .tags span {
+        font-size: 0.8rem;
+        padding: 5px 10px;
+    }
+
+    .selector button {
+        font-size: 0.75rem;
+        padding: 5px 10px;
+    }
+}
+
+/* ============================
+   📱 MOBILE GRANDE / TABLET
+   481px a 768px
+============================ */
+@media (max-width: 768px) {
+
+    .card {
+        width: 70vw;
+    }
+
+    .links a {
+        font-size: 1rem;
+    }
+
+    .minicard {
+        padding: 0.9rem 1.1rem;
+        font-size: 0.9rem;
+    }
+
+    .skills-group h3 {
+        font-size: 1.05rem;
+    }
+
+    /* Modal mais suave */
+    .modal-content {
+        width: 85vw;
+    }
+}
+
+/* ============================
+   💻 DESKTOP GRANDE (4K)
+   acima de 1400px
+============================ */
+@media (min-width: 1400px) {
+    .card {
+        width: 420px;
+        padding: 2.5rem;
+    }
+
+    .card h1 {
+        font-size: 2rem;
+    }
+
+    .links a {
+        padding: 0.8rem;
+        font-size: 1.1rem;
+    }
+
+    .minicard {
+        padding: 1.1rem 1.4rem;
+        font-size: 1rem;
+    }
+}

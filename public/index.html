@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="image/ADN_Red.png" type="image/x-icon">
+
+<title>Card de Apresentação</title>
+
+
+<meta name="description" content="Desenvolvedor Full-Stack, Programador Roblox, Web, Automação e Segurança. Veja meu card de apresentação com habilidades e links.">
+
+
+<meta property="og:title" content="Adrian Razini — Card de Apresentação">
+<meta property="og:description" content="Programador Full-Stack, Roblox, Web e Automação. Clique para ver minhas habilidades e redes sociais.">
+<meta property="og:image" content="https://SEU-SITE/image/ADN_Red.png">
+<meta property="og:url" content="https://SEU-SITE">
+<meta property="og:type" content="website">
+
+<!-- Para Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Adrian Razini — Card de Apresentação">
+<meta name="twitter:description" content="Veja meu card profissional com habilidades e redes.">
+
+
+<!-- SEO Básico -->
+<meta name="author" content="Adrian Razini Rangel">
+<meta name="theme-color" content="#6c5ce7">
+
+
+    <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+
+
+   <video autoplay muted loop playsinline></video>
+
+
+  <div class="card">
+    <h1>Adrian Razini Rangel</h1>
+    <p>Siga minhas redes:</p>
+
+    <div class="links">
+        <a href="https://www.instagram.com/adrian75556435/" target="_blank">
+            <i class="fa-brands fa-instagram"></i> Instagram
+        </a>
+
+        <a href="https://www.youtube.com/@MasterMods-rp" target="_blank">
+            <i class="fa-brands fa-youtube"></i> YouTube
+        </a>
+
+        <a href="https://github.com/AdrainRazini" target="_blank">
+            <i class="fa-brands fa-github"></i> GitHub
+        </a>
+
+        <a href="index.html" target="_blank">
+            <i class="fa-solid fa-globe"></i> Site
+        </a>
+    </div>
+</div>
+
+
+<!-- Mini Card: Tags -->
+<div class="minicard tags" onclick="openModal()">
+    Tags
+</div>
+
+<!-- Mini Card: Som -->
+<div class="minicard sound" onclick="toggleSound()">
+    <i id="soundIcon" class="fas fa-volume-mute"></i>
+</div>
+
+<div class="view-counter">
+    <i class="fa-solid fa-eye"></i>
+    <h1 id="Counter">0</h1>
+</div>
+
+<script>
+// Pega contador REAL do servidor
+fetch("/views")
+.then(res => res.json())
+.then(data => {
+    document.getElementById("Counter").textContent = data.views;
+});
+</script>
+
+
+
+<!-- Audio escondido -->
+<audio id="rainSound" src="image/rain-cocoon.mp3" loop></audio>
+
+
+    <!-- Modal -->
+<div id="Modal">
+ <div class="modal-content">
+    <span class="close" onclick="closeModal()">×</span>
+    <h2>Minhas Habilidades</h2>
+
+    <p class="sub">Programação • Web • Roblox • Automação</p>
+
+<div class="selector">
+    <button onclick="selectSkill('linguagens')" class="active">
+        <i class="fa-solid fa-code"></i> Linguagens
+    </button>
+
+    <button onclick="selectSkill('web')">
+        <i class="fa-solid fa-globe"></i> Web & Backend
+    </button>
+
+    <button onclick="selectSkill('roblox')">
+        <i class="fa-solid fa-cube"></i> Roblox Studio
+    </button>
+
+    <button onclick="selectSkill('automacao')">
+        <i class="fa-solid fa-gears"></i> Automação
+    </button>
+
+    <button onclick="selectSkill('seguranca')">
+        <i class="fa-solid fa-shield-halved"></i> Segurança
+    </button>
+</div>
+
+<div class="skills-group" id="linguagens">
+    <h3> Linguagens</h3>
+    <div class="tags">
+        <span><i class="fa-solid fa-code"></i> Lua (Roblox)</span>
+        <span><i class="fa-brands fa-js"></i> JavaScript</span>
+        <span><i class="fa-brands fa-html5"></i> HTML5</span>
+        <span><i class="fa-brands fa-css3-alt"></i> CSS3</span>
+        <span><i class="fa-brands fa-python"></i> Python</span>
+        <span><i class="fa-solid fa-database"></i> SQL</span>
+        <span><i class="fa-solid fa-code-branch"></i> JSON</span>
+    </div>
+</div>
+
+<div class="skills-group" id="web">
+    <h3> Web & Backend</h3>
+    <div class="tags">
+        <span><i class="fa-brands fa-node"></i> Node.js</span>
+        <span><i class="fa-solid fa-server"></i> Express.js</span>
+        <span><i class="fa-solid fa-fire"></i> Firebase</span>
+        <span><i class="fa-solid fa-cloud"></i> Vercel</span>
+        <span><i class="fa-solid fa-plug"></i> APIs REST</span>
+        <span><i class="fa-solid fa-file-code"></i> API de Músicas</span>
+        <span><i class="fa-solid fa-sitemap"></i> Servidor Unificado</span>
+        <span><i class="fa-solid fa-chart-line"></i> SEO & Sitemap</span>
+    </div>
+</div>
+
+<div class="skills-group" id="roblox">
+    <h3> Roblox Studio</h3>
+    <div class="tags">
+        <span><i class="fa-solid fa-robot"></i> AutoFarm Inteligente</span>
+        <span><i class="fa-solid fa-bullseye"></i> Raycast Avançado</span>
+        <span><i class="fa-solid fa-route"></i> Pathfinding</span>
+        <span><i class="fa-solid fa-display"></i> GUI Design</span>
+        <span><i class="fa-solid fa-link"></i> HttpService</span>
+        <span><i class="fa-solid fa-boxes-stacked"></i> Modules & Systems</span>
+        <span><i class="fa-solid fa-cloud-rain"></i> Efeitos 3D (Chuva, Luz)</span>
+        <span><i class="fa-solid fa-mobile-screen"></i> Roblox Phone OS</span>
+        <span><i class="fa-solid fa-screwdriver-wrench"></i> Plugins Internos</span>
+    </div>
+</div>
+
+<div class="skills-group" id="automacao">
+    <h3> Automação & Apps</h3>
+    <div class="tags">
+        <span><i class="fa-solid fa-desktop"></i> Tkinter</span>
+        <span><i class="fa-solid fa-folder-zipper"></i> Monitoramento ZIP</span>
+        <span><i class="fa-solid fa-terminal"></i> Scripts VBS</span>
+        <span><i class="fa-solid fa-gears"></i> Ferramentas Locais</span>
+        <span><i class="fa-solid fa-file-circle-check"></i> Processamento Automático</span>
+    </div>
+</div>
+
+<div class="skills-group" id="seguranca">
+    <h3> Segurança</h3>
+    <div class="tags">
+        <span><i class="fa-solid fa-shield-halved"></i> Phishing Awareness</span>
+        <span><i class="fa-solid fa-lock"></i> 2FA & Proteção</span>
+        <span><i class="fa-solid fa-user-secret"></i> Proteção de Scripts</span>
+        <span><i class="fa-solid fa-eye"></i> Monitoramento de Atividade</span>
+        <span><i class="fa-solid fa-bug"></i> Análise de Riscos</span>
+    </div>
+</div>
+
+
+ </div>
+</div>
+
+<script>
+// ================== MODAL ==================
+function openModal() {
+    document.getElementById("Modal").style.display = "flex";
+}
+
+function closeModal() {
+    document.getElementById("Modal").style.display = "none";
+}
+
+// ================== SKILLS SELECTOR ==================
+function selectSkill(category, event) {
+    const groups = document.querySelectorAll(".skills-group");
+    const buttons = document.querySelectorAll(".selector button");
+
+    // Oculta todos os grupos
+    groups.forEach(g => g.style.display = "none");
+
+    // Mostra apenas o grupo selecionado
+    document.getElementById(category).style.display = "block";
+
+    // Remove a classe active dos botões
+    buttons.forEach(btn => btn.classList.remove("active"));
+
+    // Adiciona ao botão clicado (agora recebe o evento corretamente)
+    if (event) event.target.classList.add("active");
+}
+
+// Exibir "linguagens" por padrão
+document.addEventListener("DOMContentLoaded", () => {
+    selectSkill('linguagens');
+});
+
+// ================== TROCA AUTOMÁTICA DO VÍDEO ==================
+const video = document.querySelector("video");
+
+// caminhos
+const videoDesktop = "image/CarroNaChuva.mp4";
+const videoMobile  = "image/ChuvaMob.mp4";
+
+function updateVideo() {
+    const isPortrait = window.innerHeight > window.innerWidth;
+
+    video.src = isPortrait ? videoMobile : videoDesktop;
+    video.play().catch(() => {});
+}
+
+// Chamada inicial
+updateVideo();
+
+// Quando a janela muda
+window.addEventListener("resize", updateVideo);
+window.addEventListener("orientationchange", updateVideo);
+
+// =============== SOM ===============
+let soundEnabled = false;
+
+function toggleSound() {
+    const audio = document.getElementById("rainSound");
+    const icon = document.getElementById("soundIcon");
+
+    soundEnabled = !soundEnabled;
+
+    if (soundEnabled) {
+        audio.volume = 0.1;
+        audio.play();
+        icon.classList.remove("fa-volume-mute");
+        icon.classList.add("fa-volume-up");
+    } else {
+        audio.pause();
+        audio.currentTime = 0;
+        icon.classList.remove("fa-volume-up");
+        icon.classList.add("fa-volume-mute");
+    }
+}
+
+
+</script>
+
+
+
+</body>
+</html>
