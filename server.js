@@ -43,16 +43,10 @@ app.get("/views", (req, res) => {
     res.json({ views });
 });
 
-// =========================
-// Rotas básicas
-// =========================
-app.get("/ping", (req, res) => {
-    res.send("pong");
-});
 
 // =========================
 // Inicialização
 // =========================
 app.listen(PORT, () => {
-    console.log(`🔥 Servidor ativo em http://localhost:${PORT}`);
+    console.log(`Htp: http://localhost:${PORT}`);
 });
